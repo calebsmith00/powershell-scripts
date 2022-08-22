@@ -33,7 +33,7 @@ Set-Content -Path ".\styles\globals.css" -Value (Get-Globals);
 
 # Replace .\pages\index based on whether the TypeScript flag was enforced or not
 if ($enableTs -eq "") {
-  Set-Content -Path ".\pages\index.jsx" -Value (Get-IndexPage)
+  Set-Content -Path ".\pages\index.js" -Value (Get-IndexPage)
 } else {
   Set-Content -Path ".\pages\index.tsx" -Value (Get-IndexPage -typescript)
 }
