@@ -37,3 +37,5 @@ if ($enableTs -eq "") {
 } else {
   Set-Content -Path ".\pages\index.tsx" -Value (Get-IndexPage -typescript)
 }
+
+Set-Location -Path ".."
