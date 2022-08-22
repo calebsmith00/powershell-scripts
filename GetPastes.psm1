@@ -1,4 +1,17 @@
-Import-Module -Name ".\Pastebin.psm1"
+function Get-RawPaste
+{
+	Param (
+		[Parameter(Mandatory=$True)]
+		$PasteKey
+	)
+	$api_paste_key      = $PasteKey;
+	$return = $(New-Object Net.WebClient).DownloadString("https://pastebin.com/raw/$api_paste_key")
+	if ($return.Contains('AD-BLOCK DETECTED')) {
+		return 'AD-BLOCK DETECTED';
+	} else {
+		return $return
+	}
+}
 
 function Get-TailwindConfig
 {
