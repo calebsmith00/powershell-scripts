@@ -19,14 +19,19 @@ npx create-next-app@latest $projectName $flags
 $projectPath = $dir + "\" + $projectName
 Set-Location -Path $projectPath
 
+# Install TailwindCSS
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
+# Remove bloat
 Remove-Item -Path ".\pages\api" -Recurse
 Remove-Item -Path ".\styles\Home.module.css"
 
+# Overwrite default data (which gets rid of bloat within the code)
 Set-Content -Path ".\tailwind.config.js" -Value (Get-TailwindConfig);
 Set-Content -Path ".\styles\globals.css" -Value (Get-Globals);
+
+# Replace .\pages\index based on whether the TypeScript flag was enforced or not
 if ($enableTs -eq "") {
   Set-Content -Path ".\pages\index.jsx" -Value (Get-IndexPage)
 } else {
