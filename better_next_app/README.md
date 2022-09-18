@@ -7,11 +7,11 @@
 	`cd C:\Users\User\PSScripts\better_next_app` **OR** if you added the directory to PATH, you can call the command directly with `better_next_app`
 
 # Flags
--dir <PATH>
+-dir <PATH> [currently broken]
 	OPTIONAL - this will default to the current directory
 	PATH - the root path that the next JS project will be created in
 
--projectName <NAME>
+-projectName <NAME> 
 	OPTIONAL - this will default to "untitledProject"
 	NAME - a string that tells the script what project name to pass to create-next-app
 
