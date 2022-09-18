@@ -13,6 +13,7 @@ $enableTs = If ($typescript.IsPresent -or $ts.IsPresent) {"--typescript"} Else {
 
 # Run create-next-app command chain
 $flags = $enableTs
+Set-Location -Path $dir
 npx create-next-app@latest $projectName $flags
 
 # Navigate into that directory
